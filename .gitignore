@@ -4,3 +4,5 @@ build
 web/build
 web/out
 out
+.DS_Store
+web/.DS_Store
