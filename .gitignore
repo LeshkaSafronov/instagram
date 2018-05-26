@@ -1,0 +1,6 @@
+.gradle
+.idea
+build
+web/build
+web/out
+out
