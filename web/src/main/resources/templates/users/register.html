@@ -1,17 +1,19 @@
-<html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/default">
 <head>
     <link href="/webjars/Semantic-UI/2.3.1/semantic.css" type="text/css" rel="stylesheet"/>
     <link href="/css/register.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
-    <form class="ui form container">
+    <form class="ui form container" th:action="@{/users/register}" th:object="${userDto}" method="post">
         <div id="register">
             <div>
                 <img id="register-logo" src="/images/logo.png">
             </div>
             <div class="field">
                 <label>First Name</label>
-                <input type="text" name="first-name" placeholder="First Name">
+                <input th:field="${userDto.firstName}" type="text" placeholder="First Name">
             </div>
             <div class="field">
                 <label>Second Name</label>
