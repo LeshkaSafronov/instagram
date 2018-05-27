@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS users;
 CREATE TABLE users (
   id serial primary key,
   username varchar(100) NOT NULL,
-  password varchar(50) NOT NULL
+  password varchar(256) NOT NULL
 );
 
 CREATE TABLE photos (

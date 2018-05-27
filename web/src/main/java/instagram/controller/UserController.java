@@ -1,27 +1,32 @@
 package instagram.controller;
 
-import instagram.dto.UserDto;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import instagram.model.User;
+import instagram.service.UserService;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
-@Controller
-@RequestMapping("/users")
+import java.io.IOException;
+import java.util.Arrays;
+
+@RestController
+@RequestMapping("/api/v1/users")
 public class UserController {
+    private UserService userService;
 
-    @GetMapping("/register")
-    public String register(UserDto userDto) {
-        return "users/register";
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
 
     @PostMapping("/register")
-    public void registerUser(UserDto userDto) {
-        System.out.println(userDto);
+    public User register(@RequestBody User user) {
+        return userService.createUser(user);
     }
 
-    @GetMapping("/login")
-    public String login(UserDto userDto) {
-        return "users/login";
+    @PostMapping("/{id}/avatar")
+    public ResponseEntity avatar(@PathVariable int id,
+                                 @RequestParam("file") MultipartFile file) throws Exception {
+        userService.setAvatar(id, file);
+        return ResponseEntity.ok().build();
     }
 }

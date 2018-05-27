@@ -32,5 +32,13 @@ dependencies {
     compile group: 'org.projectlombok', name: 'lombok', version: '1.16.20'
     compile group: 'org.flywaydb', name: 'flyway-core', version: '5.1.0'
     compile group: 'org.postgresql', name: 'postgresql', version: '42.2.2'
+
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.9.5'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.5'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.9.5'
+
+    compile 'io.minio:minio:4.0.0'
+
+
     testCompile("junit:junit")
 }
