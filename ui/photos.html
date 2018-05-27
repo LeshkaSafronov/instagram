@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="vendor/semantic/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/photos.css">
+</head>
+<body>
+    <div class="ui secondary pointing menu">
+        <a class="item"> Home </a>
+        <a class="item active"> Photos </a>
+        <a class="item"> Users </a>
+        <div class="right menu">
+            <button id="upload-button" class="ui item compact button"><i class="upload icon"></i></button>
+            <a class="ui item"> Logout </a>
+        </div>
+    </div>
+
+<div class="ui upload-photo-modal modal">
+  <i class="close icon"></i>
+  <div class="header">
+    Upload Photo
+  </div>
+  <div class="image content">
+    <div class="ui medium image">
+      <img src="vendor/images/grass-3200x2000-5k-4k-wallpaper-osx-green-dew-168.jpg">
+    </div>
+    <div class="description">
+        <p>You can choose one of the following filters:</p>
+
+            <div class="ui tiny images">
+                <img class="selected-filter" src="vendor/images/6976124-row-sea.jpg">
+              <img src="vendor/images/879778.jpg">
+              <img src="vendor/images/879782.jpg">
+              <img src="vendor/images/ade.jpg">
+              <img src="vendor/images/download.jpeg">
+              <img src="vendor/images/elliot.jpg">
+              <img src="vendor/images/iceland-5616x3744-4k-5k-wallpaper-8k-hvannadalshnj-kur-ballons-6286.jpg">
+              <img src="vendor/images/veronika.png">
+            </div>
+
+
+    </div>
+  </div>
+  <div class="actions">
+    <div class="ui black deny button">
+      Select Photo
+    </div>
+    <div class="ui positive right labeled icon button">
+      Upload
+      <i class="checkmark icon"></i>
+    </div>
+  </div>
+</div>
+
+<div class="ui photo-modal modal">
+  <div>
+    <img class="ui image" src="vendor/images/6976124-row-sea.jpg">
+  </div>
+  <div class="ui content">
+    <span class="photo-meta right floated">
+      <i class="heart outline like icon"></i>
+      17 likes
+    </span>
+    <span class="right floated">
+        <i class="comment icon"></i>
+        3 comments
+    </span>
+  </div>
+
+
+  <div class="ui extra content comments">
+      <h3 class="ui dividing header">Comments</h3>
+      <div class="comment">
+        <a class="avatar">
+          <img src="vendor/images/jenny.jpg">
+        </a>
+        <div class="content">
+          <a class="author">Matt</a>
+          <div class="metadata">
+            <span class="date">Today at 5:42PM</span>
+          </div>
+          <div class="text">
+            How artistic!
+          </div>
+          <div class="actions">
+            <a class="reply">Reply</a>
+          </div>
+        </div>
+      </div>
+      <div class="comment">
+            <a class="avatar">
+              <img src="vendor/images/ade.jpg">
+            </a>
+            <div class="content">
+              <a class="author">Elliot Fu</a>
+              <div class="metadata">
+                <span class="date">Yesterday at 12:30AM</span>
+              </div>
+              <div class="text">
+                <p>This has been very useful for my research. Thanks as well!</p>
+              </div>
+              <div class="actions">
+                <a class="reply">Reply</a>
+              </div>
+            </div>
+        </div>
+    </div>
+
+
+  <div class="extra content">
+    <div class="ui large transparent left icon input">
+        <img class="ui avatar image" src="vendor/images/elliot.jpg">
+        <input id="photo-comment" type="text" placeholder="Add Comment...">
+        <div class="ui icon button">
+            <i class="icon edit"></i>
+        </div>
+    </div>
+  </div>
+</div>
+</div>
+
+   <!--  <div class="ui centered aligned segment">
+        <img class="ui medium image" src="vendor/images/image.png">
+        <button class="positive ui button">Positive Button</button>
+    </div> -->
+
+    <div class="ui center aligned">
+        <img class="ui small circular centered image" src="vendor/images/elliot.jpg">
+        <div class="center-header">
+            <b>Alexey Safronov</b>
+        </div>
+    </div>
+
+    <div class="ui container text-title">
+            <i class="heart icon"></i>
+            <b>Photos</b>
+        </div>
+
+    <div class="ui container gallery">
+        <!-- <div class="ui five column grid"> -->
+            <!-- <div class="column"> -->
+
+                <div class="container-photo">
+                    <img class=" image" src="vendor/images/879778.jpg">
+                    <div class="image-like">
+                            <span>
+                              <i class="heart outline like icon"></i>
+                              17
+                            </span>
+                        </div>
+                        <div class="image-comment">
+
+                                                        <span>
+
+                            <i class="comment icon"></i>
+                            3
+                            
+                        </span>
+                    </div>
+
+                </div>
+
+                <div class="container-photo">
+                    <img class=" image" src="vendor/images/iceland-5616x3744-4k-5k-wallpaper-8k-hvannadalshnj-kur-ballons-6286.jpg">
+                    <div class="image-like">
+                            <span>
+                              <i class="heart outline like icon"></i>
+                              17
+                            </span>
+                        </div>
+                        <div class="image-comment">
+
+                                                        <span>
+
+                            <i class="comment icon"></i>
+                            3
+                            
+                        </span>
+                    </div>
+                </div>
+
+            <!-- </div> -->
+            
+            <!-- <div class="column"> -->
+
+                <div class="container-photo">
+                    <img class="image" src="vendor/images/grass-3200x2000-5k-4k-wallpaper-osx-green-dew-168.jpg">
+                </div>
+
+            <!-- </div> -->
+            
+            <!-- <div class="column"> -->
+                <div class=" container-photo">
+                    <img class=" image" src="vendor/images/879778.jpg">
+                </div>
+
+                <div class=" container-photo">
+                    <img class=" image" src="vendor/images/iceland-5616x3744-4k-5k-wallpaper-8k-hvannadalshnj-kur-ballons-6286.jpg">
+                </div>
+
+                <div class=" container-photo">
+                    <img class=" image" src="vendor/images/6976124-row-sea.jpg">
+                </div>
+
+                <div class=" container-photo">
+                    <img class=" image" src="vendor/images/879778.jpg">
+                </div>
+
+            <!-- </div> -->
+          
+            <!-- <div class="column"> -->
+                <div class="container-photo">
+                    <img class=" image" src="vendor/images/grass-3200x2000-5k-4k-wallpaper-osx-green-dew-168.jpg">
+                </div>
+
+                <div class="container-photo">
+                    <img class=" image" src="vendor/images/image.png">
+                </div>
+
+                <div class="container-photo">
+                    <img class=" image" src="vendor/images/image.png">
+                </div>
+
+                <div class="container-photo">
+                    <img class=" image" src="vendor/images/grass-3200x2000-5k-4k-wallpaper-osx-green-dew-168.jpg">
+                </div>
+            <!-- </div> -->
+            
+            <!-- <div class="column"> -->
+                <div class="container-photo">
+                    <img class=" image" src="vendor/images/6976124-row-sea.jpg">
+                </div>
+
+                <div class="container-photo">
+                    <img class=" image" src="vendor/images/image.png">
+                </div>
+                <div class="container-photo">
+                    <img class=" image" src="vendor/images/6976124-row-sea.jpg">
+                </div>
+            <!-- </div> -->
+         
+    </div> 
+
+
+</body>
+<script src="vendor/jquery/jquery-3.3.1.min.js"></script>
+<script src="vendor/semantic/semantic.min.js"></script>
+<script src="vendor/masonry/masonry.pkgd.min.js"></script>
+<script src="vendor/photos.js"></script>
+</html>
