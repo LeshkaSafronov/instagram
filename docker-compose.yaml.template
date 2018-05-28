@@ -4,9 +4,56 @@ services:
     ports:
      - "8080:8080"
     image: $imageWeb
-    command: ["./wait-for-postgres.sh", "java", "-jar", "$webFilename"]
+    command: bash -c "./wait-for-postgres.sh && java -jar $webFilename"
 
   db:
     ports:
      - "5432:5432"
     image: $imageDb
+
+  minio1:
+    image: minio/minio
+    volumes:
+      - minio1:/export
+    ports:
+      - "9001:9000"
+    environment:
+      MINIO_ACCESS_KEY: 4f624375bfbd41f1b69a662ca323831a
+      MINIO_SECRET_KEY: f20b44c4aa8c23eaa6a146514dbffbd7
+    command: server http://minio1/export http://minio2/export http://minio3/export http://minio4/export
+  minio2:
+    image: minio/minio
+    volumes:
+      - minio2:/export
+    ports:
+      - "9002:9000"
+    environment:
+      MINIO_ACCESS_KEY: 4f624375bfbd41f1b69a662ca323831a
+      MINIO_SECRET_KEY: f20b44c4aa8c23eaa6a146514dbffbd7
+    command: server http://minio1/export http://minio2/export http://minio3/export http://minio4/export
+  minio3:
+    image: minio/minio
+    volumes:
+      - minio3:/export
+    ports:
+      - "9003:9000"
+    environment:
+      MINIO_ACCESS_KEY: 4f624375bfbd41f1b69a662ca323831a
+      MINIO_SECRET_KEY: f20b44c4aa8c23eaa6a146514dbffbd7
+    command: server http://minio1/export http://minio2/export http://minio3/export http://minio4/export
+  minio4:
+    image: minio/minio
+    volumes:
+      - minio4:/export
+    ports:
+      - "9004:9000"
+    environment:
+      MINIO_ACCESS_KEY: 4f624375bfbd41f1b69a662ca323831a
+      MINIO_SECRET_KEY: f20b44c4aa8c23eaa6a146514dbffbd7
+    command: server http://minio1/export http://minio2/export http://minio3/export http://minio4/export
+
+volumes:
+  minio1:
+  minio2:
+  minio3:
+  minio4:
