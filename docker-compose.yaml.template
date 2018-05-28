@@ -4,7 +4,7 @@ services:
     ports:
      - "8080:8080"
     image: $imageWeb
-    command: bash -c "./wait-for-postgres.sh && java -jar $webFilename"
+    command: bash -c "./wait-for-postgres.sh && python3.5 wait-for-minio.py && java -jar $webFilename"
 
   db:
     ports:

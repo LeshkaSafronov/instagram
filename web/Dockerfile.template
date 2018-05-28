@@ -5,5 +5,10 @@ RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main" > /etc
 RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - && \
     apt-get update && apt-get -y install postgresql-10
 
-COPY build/libs/$filename /usr/src/$dirname
+RUN apt install -y python3-pip
+ADD requirements.txt /usr/src/$dirname/requirements.txt
+RUN pip3 install -r requirements.txt
+
+ADD build/libs/$filename /usr/src/$dirname
 ADD wait-for-postgres.sh /usr/src/$dirname/wait-for-postgres.sh
+ADD wait-for-minio.py /usr/src/$dirname/wait-for-minio.py
