@@ -33,7 +33,11 @@ public class UserController {
 
     @GetMapping("/{id}")
     public ResponseEntity<User> getUser(@PathVariable int id) {
-        return ResponseEntity.ok(userService.getUser(id));
+        User user = userService.getUser(id);
+        if (user == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(user);
     }
 
     @GetMapping("")

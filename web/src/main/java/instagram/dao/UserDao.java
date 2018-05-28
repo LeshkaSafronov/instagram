@@ -73,7 +73,11 @@ public class UserDao {
 
     public User getUser(int id) {
         Object[] params = new Object[]{ id };
-        return jdbcTemplate.queryForObject(GET_USER_BY_ID, params, new UserMapper());
+        try {
+            return jdbcTemplate.queryForObject(GET_USER_BY_ID, params, new UserMapper());
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
     }
 
     private class UserMapper implements RowMapper<User> {
