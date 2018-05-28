@@ -11,6 +11,12 @@ services:
      - "5432:5432"
     image: $imageDb
 
+  style-transfer:
+    ports:
+     - "7777:7777"
+    image: $imageStyleTransfer
+    command: bash -c "./wait-for-postgres.sh && python3.5 wait-for-minio.py && python3.6 server/style_transfer_server.py"
+
   minio1:
     image: minio/minio
     volumes:

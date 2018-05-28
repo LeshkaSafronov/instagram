@@ -231,7 +231,7 @@ def merge_photo(content_image, style_image):
         session.run(tf.global_variables_initializer())
         session.run(vgg19["input"].assign(input_image))
 
-        for epoch in range(5):
+        for epoch in range(configs.EPOCHS):
             session.run(train_step)
             if epoch % 100 == 0:
                 mixed_image = session.run(vgg19["input"])

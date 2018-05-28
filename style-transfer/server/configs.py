@@ -24,9 +24,9 @@ VGG19_MODEL_MD5 = '8ee3263992981a1d26e73b3ca028a123'
 
 
 # Minio S3 access and secret keys
-ACCESS_KEY = 'GRL6DI8QSCK9BJ9IBRRW'
-SECRET_KEY = 'g0X9EOzyozntFZZEm0sCK5sGx5+NKRMD9XoyeRFh'
-MINIO_URL = 'http://127.0.0.1:9000'
+ACCESS_KEY = '4f624375bfbd41f1b69a662ca323831a'
+SECRET_KEY = 'f20b44c4aa8c23eaa6a146514dbffbd7'
+MINIO_URL = 'http://minio1:9000'
 
 
 # Minio basket names
@@ -35,7 +35,7 @@ PHOTOS_BASKET = 'photos'
 
 
 # Database configuration
-DSN = 'dbname=neurogram user=postgres password=secret host=127.0.01 port=5432'
+DSN = 'dbname=neurogram user=dbroot password=dbroot host=localhost port=5432'
 
 
 # Algorithm configurations

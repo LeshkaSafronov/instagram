@@ -115,4 +115,4 @@ class Server(Application):
 if __name__ == '__main__':
     vgg19_model_loader.load_vgg19_if_not_exists()
     server = Server()
-    web.run_app(server)
+    web.run_app(server, 7777)

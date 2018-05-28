@@ -3,13 +3,19 @@ services:
   web:
     ports:
      - "8080:8080"
-    image: localhost:5000/web:9eeb00ef363658a1a8f2f5f2227665be94f6949c
+    image: localhost:5000/web:efb497a5641ab13bd8a8564b4b449527106e919e
     command: bash -c "./wait-for-postgres.sh && python3.5 wait-for-minio.py && java -jar web.jar"
 
   db:
     ports:
      - "5432:5432"
-    image: localhost:5000/db:9eeb00ef363658a1a8f2f5f2227665be94f6949c
+    image: localhost:5000/db:efb497a5641ab13bd8a8564b4b449527106e919e
+
+  style-transfer:
+    ports:
+     - "7777:7777"
+    image: localhost:5000/style-transfer:efb497a5641ab13bd8a8564b4b449527106e919e
+    command: bash -c "./wait-for-postgres.sh && python3.5 wait-for-minio.py && python3.6 server/style_transfer_server.py"
 
   minio1:
     image: minio/minio

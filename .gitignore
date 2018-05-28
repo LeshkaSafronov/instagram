@@ -6,3 +6,4 @@ web/out
 out
 .DS_Store
 web/.DS_Store
+style-transfer/server/imagenet-vgg-verydeep-19.mat

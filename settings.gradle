@@ -1,3 +1,4 @@
 rootProject.name = 'instagram'
 include 'web'
 include 'db'
+include 'style-transfer'
