@@ -8,6 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/users")
@@ -28,6 +29,16 @@ public class UserController {
                                  @RequestParam("file") MultipartFile file) throws Exception {
         userService.setAvatar(id, file);
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<User> getUser(@PathVariable int id) {
+        return ResponseEntity.ok(userService.getUser(id));
+    }
+
+    @GetMapping("")
+    public ResponseEntity<List<User>> getUsers() {
+        return ResponseEntity.ok(userService.getUsers());
     }
 
     @GetMapping(value = "/{id}/avatar", produces = MediaType.IMAGE_JPEG_VALUE)

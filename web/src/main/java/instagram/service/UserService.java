@@ -14,6 +14,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 @Service
 public class UserService {
@@ -32,6 +33,14 @@ public class UserService {
 
     public User createUser(User user) {
         return userDao.createUser(user);
+    }
+
+    public List<User> getUsers() {
+        return userDao.getUsers();
+    }
+
+    public User getUser(int id) {
+        return userDao.getUser(id);
     }
 
     public void setAvatar(int id, MultipartFile file) throws IOException, MinioException, NoSuchAlgorithmException, InvalidKeyException, XmlPullParserException {
