@@ -4,6 +4,7 @@ import instagram.dao.UserDao;
 import instagram.model.User;
 import io.minio.MinioClient;
 import io.minio.errors.MinioException;
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -36,5 +37,11 @@ public class UserService {
     public void setAvatar(int id, MultipartFile file) throws IOException, MinioException, NoSuchAlgorithmException, InvalidKeyException, XmlPullParserException {
         ByteArrayInputStream bais = new ByteArrayInputStream(file.getBytes());
         minioClient.putObject(photoBucket, file.getOriginalFilename(), bais, bais.available(), "application/octet-stream");
+        userDao.setAvatarKey(id, file.getOriginalFilename());
+    }
+
+    public byte[] getAvatar(int userId) throws IOException, MinioException, NoSuchAlgorithmException, InvalidKeyException, XmlPullParserException {
+        String key = userDao.getAvatarKey(userId);
+        return key != null ? IOUtils.toByteArray(minioClient.getObject(photoBucket, key)) : null;
     }
 }
