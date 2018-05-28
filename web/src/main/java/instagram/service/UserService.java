@@ -37,5 +37,4 @@ public class UserService {
         ByteArrayInputStream bais = new ByteArrayInputStream(file.getBytes());
         minioClient.putObject(photoBucket, file.getOriginalFilename(), bais, bais.available(), "application/octet-stream");
     }
-    
 }

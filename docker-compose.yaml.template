@@ -1,0 +1,12 @@
+version: '3'
+services:
+  web:
+    ports:
+     - "8080:8080"
+    image: $imageWeb
+    command: ["./wait-for-postgres.sh", "java", "-jar", "$webFilename"]
+
+  db:
+    ports:
+     - "5432:5432"
+    image: $imageDb

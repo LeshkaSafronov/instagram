@@ -1,0 +1,57 @@
+import groovy.text.SimpleTemplateEngine
+
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.bmuschko:gradle-docker-plugin:3.2.9'
+    }
+}
+
+// use fully qualified class name
+apply plugin: com.bmuschko.gradle.docker.DockerRemoteApiPlugin
+
+// import task classes
+import com.bmuschko.gradle.docker.tasks.image.*
+
+repositories {
+    jcenter()
+}
+
+docker {
+    registryCredentials {
+        url = 'http://localhost:5000'
+    }
+}
+
+task prepareDockerfile {
+    doLast {
+        def engine = new SimpleTemplateEngine()
+        def binding = ["filename":jar.archivePath.name, "dirname":project.name]
+        def result = engine.createTemplate(new File('web/Dockerfile.template').text).make(binding)
+
+        File out = new File('web/Dockerfile')
+        out.write result.toString()
+    }
+}
+
+task buildImage(dependsOn: [build, prepareDockerfile], type: DockerBuildImage) {
+    inputDir = project.projectDir
+    tag = sprintf('%1$s/%2$s:%3$s', [
+            'localhost:5000',
+            project.name,
+            "git rev-parse HEAD".execute().text.trim()
+    ])
+}
+
+task pushImage(dependsOn: buildImage, type: DockerPushImage) {
+    imageName = sprintf('%1$s/%2$s', [
+            'localhost:5000',
+            project.name
+    ])
+
+    tag = "git rev-parse HEAD".execute().text.trim()
+}
+
