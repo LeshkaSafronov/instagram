@@ -35,7 +35,6 @@ public class UserDao {
     }
 
     public User createUser(User user) {
-        System.out.println(user);
         SqlParameterSource parameters = new MapSqlParameterSource()
                 .addValue("username", user.getUsername())
                 .addValue("password", new BCryptPasswordEncoder().encode(user.getPassword()));

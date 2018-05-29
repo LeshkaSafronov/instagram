@@ -19,7 +19,8 @@ CREATE TABLE photos (
   likes integer DEFAULT 0,
   text varchar(1024),
   is_ready boolean DEFAULT false,
-  key varchar(128)
+  key varchar(128),
+  url varchar(256)
 );
 
 CREATE TABLE filters (

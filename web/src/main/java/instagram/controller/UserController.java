@@ -51,6 +51,6 @@ public class UserController {
         if (body == null) {
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(userService.getAvatar(id));
+        return ResponseEntity.ok(body);
     }
 }
